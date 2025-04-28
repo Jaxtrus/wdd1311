@@ -1,0 +1,50 @@
+/* Set base styles */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    max-width: 600px;
+    padding: 20px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+/* Title Styles */
+.title h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.title h2 {
+    color: #006EB6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0;
+}
+
+/* Main Content Styles */
+main {
+    text-align: left;
+}
+
+.does-list {
+    padding-left: 20px; /* Indent list */
+}
+
+/* Footer/logo styles */
+footer {
+    margin-top: 30px;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
