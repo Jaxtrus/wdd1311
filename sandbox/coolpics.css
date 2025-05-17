@@ -72,3 +72,18 @@ button {
       grid-template-columns: 1fr 1fr;
     }
   }
+
+  .hide {
+    display: none;
+  }
+  
+  @media (min-width: 1000px) {
+    .menu {
+      display: flex !important; 
+    }
+  
+    .menu-button {
+      display: none;
+    }
+  }
+  
