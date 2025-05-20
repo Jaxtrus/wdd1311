@@ -68,22 +68,48 @@ button {
 }
 
 @media screen and (min-width: 700px) {
-    .gallery {
-      grid-template-columns: 1fr 1fr;
-    }
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .menu {
+    display: flex !important; 
   }
 
-  .hide {
+  .menu-button {
     display: none;
   }
-  
-  @media (min-width: 1000px) {
-    .menu {
-      display: flex !important; 
-    }
-  
-    .menu-button {
-      display: none;
-    }
-  }
-  
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  padding: 0;
+  z-index: 10;
+}
+
+.modal img {
+  display: block;
+  margin: 20vh auto;
+  width: 90%;
+  max-height: 100%;
+}
+
+.close-viewer {
+  position: absolute;
+  top: 20vh;
+  right: 5vw;
+  background: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+}
