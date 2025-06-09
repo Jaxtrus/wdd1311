@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit Card Form</title>
+  <meta name="description" content="Credit Card Input Form Project for WDD 131" />
+  <meta name="author" content="Allan Burton" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="card.js" defer></script>
+  <link rel="icon" type="image/png" href="favicon.png" />
+</head>
+<body>
+  <form id="credit-card">
+    <div class="card-container">
+      <div class="card-front">
+        <img src="https://byui-wdd.github.io/wdd131/images/orange-card-front.png" alt="Credit Card Front" class="card-image" />
+
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 1234 1234 1234" required />
+
+        <label for="fullName">Card Holder</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Full Name" required />
+
+        <label for="expiry">Expiration Date</label>
+        <input type="month" id="expiry" name="expiry" required />
+      </div>
+
+      <div class="card-back">
+        <div class="dark-bar"></div>
+
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" placeholder="123" required maxlength="4" />
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+    <p class="errorMsg" aria-live="polite"></p>
+  </form>
+</body>
+</html>
