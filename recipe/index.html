@@ -31,25 +31,12 @@
   <form id="searchForm" role="search">
     <label for="search">Search Recipes:</label>
     <input type="text" id="search" name="search" placeholder="Search..." aria-label="Search Recipes">
+    <button id="search-button" type="submit">Search</button>
   </form>
 
   <!-- Main Content -->
-  <main>
-    <!-- One example recipe card (JavaScript will replace this if dynamic) -->
-    <section class="recipe-card">
-      <img src="images/sample-recipe.jpg" alt="Sample Recipe Image">
-      <h2>Sample Recipe</h2>
-
-      <span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
-        <span aria-hidden="true" class="icon-star">⭐</span>
-        <span aria-hidden="true" class="icon-star">⭐</span>
-        <span aria-hidden="true" class="icon-star">⭐</span>
-        <span aria-hidden="true" class="icon-star">⭐</span>
-        <span aria-hidden="true" class="icon-star-empty">☆</span>
-      </span>
-
-      <p class="description">A simple and tasty sample recipe to demonstrate layout.</p>
-    </section>
+  <main id="recipes">
+    
   </main>
 
   <!-- Footer -->

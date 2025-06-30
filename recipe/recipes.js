@@ -291,18 +291,62 @@ function renderStars(rating) {
   `;
 }
 
-// Function to render recipes
-function renderRecipes(recipes) {
-  const main = document.querySelector('main');
-  main.innerHTML = recipes.map(recipe => `
+// Create tag list HTML
+function renderTags(tags) {
+  return `
+    <ul class="recipe__tags">
+      ${tags.map(tag => `<li>${tag}</li>`).join('')}
+    </ul>
+  `;
+}
+
+// Create full recipe card
+function recipeTemplate(recipe) {
+  return `
     <section class="recipe-card">
       <img src="${recipe.image}" alt="Image of ${recipe.name}">
+      ${renderTags(recipe.tags)}
       <h2>${recipe.name}</h2>
       ${renderStars(recipe.rating)}
       <p class="description">${recipe.description}</p>
     </section>
-  `).join('');
+  `;
 }
 
-// Call the function to render
-renderRecipes(recipes);
+// Render list of recipes to the DOM
+function renderRecipes(recipeList) {
+  const main = document.getElementById('recipes');
+  main.innerHTML = recipeList.map(recipe => recipeTemplate(recipe)).join('');
+}
+
+// Filter recipes based on query string
+function filterRecipes(query) {
+  const lowerQuery = query.toLowerCase();
+  const filtered = recipes.filter(recipe =>
+    recipe.name.toLowerCase().includes(lowerQuery) ||
+    recipe.description.toLowerCase().includes(lowerQuery) ||
+    recipe.recipeIngredient.some(ingredient => ingredient.toLowerCase().includes(lowerQuery)) ||
+    recipe.tags.some(tag => tag.toLowerCase().includes(lowerQuery))
+  );
+  return filtered.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+// Handle search form submission
+function searchHandler(e) {
+  e.preventDefault();
+  const input = document.getElementById('search');
+  const query = input.value.trim().toLowerCase();
+  const results = filterRecipes(query);
+  renderRecipes(results);
+}
+
+// Initialize app with random recipe and search listener
+function init() {
+  const form = document.getElementById('searchForm');
+  form.addEventListener('submit', searchHandler);
+
+  const randomRecipe = getRandomListEntry(recipes);
+  renderRecipes([randomRecipe]);
+}
+
+init();
