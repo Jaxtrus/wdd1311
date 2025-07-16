@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame by Frame - Movie Reviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main-page.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="images/Frame-by-Frame.png" class="logo" alt="Frame by Frame Logo">
+                <div class="header-controls">
+                    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-links">
+                <a href="#" class="active" onclick="showHome()">Home</a>
+                <a href="page-1.html" onclick="showMyMovies()">My Movies</a>
+                <a href="#" onclick="showWatchlist()">Watchlist</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div id="home-page">
+                <div class="search-section">
+                    <h1>Discover Movies</h1>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search for movies, actors, directors..." id="searchInput">
+                        <button class="search-btn" onclick="searchMovies()">Search</button>
+                        <div class="autocomplete-dropdown" id="autocompleteDropdown"></div>
+                    </div>
+                </div>
+
+                <div class="filters-section">
+                    <div class="filters-grid">
+                        <div class="filter-group">
+                            <label for="genreFilter">Genre</label>
+                            <select id="genreFilter">
+                                <option value="">All Genres</option>
+                                <option value="action">Action</option>
+                                <option value="comedy">Comedy</option>
+                                <option value="drama">Drama</option>
+                                <option value="horror">Horror</option>
+                                <option value="sci-fi">Sci-Fi</option>
+                                <option value="thriller">Thriller</option>
+                                <option value="romance">Romance</option>
+                                <option value="adventure">Adventure</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="yearFilter">Year</label>
+                            <select id="yearFilter">
+                                <option value="">All Years</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="ratingFilter">Minimum Rating</label>
+                            <select id="ratingFilter">
+                                <option value="">Any Rating</option>
+                                <option value="9">9+ Stars</option>
+                                <option value="8">8+ Stars</option>
+                                <option value="7">7+ Stars</option>
+                                <option value="6">6+ Stars</option>
+                                <option value="5">5+ Stars</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="castFilter">Cast/Director</label>
+                            <input type="text" id="castFilter" placeholder="Enter actor or director name">
+                        </div>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="btn btn-primary" onclick="applyFilters()">Apply Filters</button>
+                        <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+                    </div>
+                </div>
+
+                <div class="movies-section">
+                    <h2>Popular Movies</h2>
+                    <div class="movie-grid" id="movieGrid">
+                        <!-- Movies will be populated by JavaScript -->   
+
+                        <div class="movie-card">
+                            <div class="movie-poster">
+                                <img src="images/Inception.jpg" alt="Inception Poster">
+                                <div class="movie-overlay">
+                                    <div class="overlay-content">
+                                        <h3>Inception</h3>
+                                        <p>A thief who steals corporate secrets through the use of dream-sharing technology...</p>
+                                        <div class="overlay-actions">
+                                            <button class="overlay-btn" onclick="showDetails({
+                                                title: 'Inception',
+                                                description: 'A thief who steals corporate secrets through the use of dream-sharing technology...',
+                                                year: 2010,
+                                                rating: 8.8,
+                                                genre: 'Sci-Fi',
+                                                cast: ['Leonardo DiCaprio', 'Joseph Gordon-Levitt'],
+                                                director: 'Christopher Nolan'
+                                            })">More Info</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">Inception</div>
+                                <div class="movie-meta">
+                                    <span class="movie-year">2010</span>
+                                    <span class="movie-rating">⭐ 8.8</span>
+                                </div>
+                                <div class="movie-genre">Sci-Fi</div>
+                            </div>
+                        </div>
+<div class="movie-card">
+  <div class="movie-poster">
+    <img src="images/Sinners.jpg" alt="Sinners Movie Poster" />
+    <div class="movie-overlay">
+      <div class="overlay-content">
+        <h3>Sinners</h3>
+        <p>Set in a small town, Sinners explores themes of redemption and the struggles of a community grappling with faith and forgiveness...</p>
+        <div class="overlay-actions">
+          <button class="overlay-btn" onclick='showDetails({ 
+            title: "Sinners", 
+            description: "Set in a small town, Sinners explores themes of redemption and the struggles of a community grappling with faith and forgiveness.", 
+            year: 2023, rating: 7.5, genre: "drama", cast: ["Jessie Buckley", "Jason Isaacs", "Tom Burke"], director: "Janell Shirtcliff", image: "images/Sinners.jpg" 
+          })'>More Info</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="movie-info">
+    <div class="movie-title">Sinners</div>
+    <div class="movie-meta">
+      <span class="movie-year">2023</span>
+      <span class="movie-rating">⭐ 7.5</span>
+    </div>
+    <div class="movie-genre">Drama</div>
+  </div>
+</div>
+
+<div class="movie-card">
+  <div class="movie-poster">
+    <img src="images/Bullet-train.jpg" alt="Bullet Train Movie Poster" />
+    <div class="movie-overlay">
+      <div class="overlay-content">
+        <h3>Bullet Train</h3>
+        <p>Five assassins aboard a fast-moving bullet train find out their missions have something in common, leading to chaotic encounters...</p>
+        <div class="overlay-actions">
+          <button class="overlay-btn" onclick='showDetails({ 
+            title: "Bullet Train", 
+            description: "Five assassins aboard a fast-moving bullet train find out their missions have something in common, leading to chaotic encounters.", 
+            year: 2022, rating: 7.2, genre: "action", cast: ["Brad Pitt", "Joey King", "Aaron Taylor-Johnson"], director: "David Leitch", image: "images/Bullet-train.jpg" 
+          })'>More Info</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="movie-info">
+    <div class="movie-title">Bullet Train</div>
+    <div class="movie-meta">
+      <span class="movie-year">2022</span>
+      <span class="movie-rating">⭐ 7.2</span>
+    </div>
+    <div class="movie-genre">Action</div>
+  </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Movie Detail Modal -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <p id="modalDetails"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
